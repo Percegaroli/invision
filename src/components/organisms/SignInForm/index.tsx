@@ -61,12 +61,16 @@ const SignInForm = () => {
       >
         Sign In
       </Button>
+      {
+        /*
+      }
       <div className={styles.OrContainer}>
         <Typography>
           Or
         </Typography>
       </div>
       <SignWithGoogleButton />
+    */}
     </div>
   );
 };

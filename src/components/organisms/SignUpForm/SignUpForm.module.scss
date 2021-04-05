@@ -1,0 +1,17 @@
+.FormInput {
+  margin-bottom: 21px;
+
+  &:last-child {
+    margin-bottom: 41px;
+  }
+}
+
+.Container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Title {
+  margin-bottom: 50px;
+}
