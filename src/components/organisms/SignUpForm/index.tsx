@@ -4,6 +4,7 @@ import { SignUpValidation } from '../../../models/forms/SignUpForm/validation';
 import Button from '../../atoms/Button';
 import Typography from '../../atoms/Typography';
 import FormInputElement from '../../molecules/FormInputElement';
+import Snackbar from '../../molecules/Snackbar';
 import styles from './SignUpForm.module.scss';
 
 const initialFormState: SignUpFormModel = {
@@ -20,6 +21,7 @@ const SignUpForm = () => {
     password: true,
     fullName: true,
   });
+  const [isShowingSnackbar, setIsShowingSnackbar] = useState(false);
 
   const changeFormValue = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -54,7 +56,12 @@ const SignUpForm = () => {
   const isShowingError = (field: keyof SignUpFormModel) => (showingError[field] ? formErrors[field] : '');
 
   const submitForm = () => {
-
+    if (!formErrors.email && !formErrors.password && !!formErrors.fullName
+      && formState.email && formState.password && formState.fullName) {
+      setIsShowingSnackbar(true);
+      setFormState({ ...initialFormState });
+      setTimeout(() => setIsShowingSnackbar(false), 4000);
+    }
   };
 
   return (
@@ -94,6 +101,7 @@ const SignUpForm = () => {
       <Button onClick={submitForm}>
         Sign up
       </Button>
+      {isShowingSnackbar ? <Snackbar message="Sign up sucessfully!" /> : null}
     </div>
   );
 };

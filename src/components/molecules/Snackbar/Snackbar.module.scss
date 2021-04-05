@@ -1,0 +1,10 @@
+@import '/src/config/styles/tokens.scss';
+
+.Snackbar {
+  position: fixed;
+  bottom: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background-color: $primaryColor-dark;
+}

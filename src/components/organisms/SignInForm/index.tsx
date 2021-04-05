@@ -5,6 +5,7 @@ import styles from './SignInForm.module.scss';
 import Button from '../../atoms/Button';
 import { SignInModel } from '../../../models/forms/SignInForm/SignIn';
 import { SignInValidation } from '../../../models/forms/SignInForm/validation';
+import Snackbar from '../../molecules/Snackbar';
 
 const initialFormValue: SignInModel = {
   email: '',
@@ -18,6 +19,7 @@ const SignInForm = () => {
     email: true,
     password: true,
   });
+  const [showingSnackbar, setShowingSnackbar] = useState(false);
 
   const changeFormValue = (
     changeEvent: React.ChangeEvent<HTMLInputElement>,
@@ -50,6 +52,14 @@ const SignInForm = () => {
   };
 
   const isShowingError = (field: keyof SignInModel) => (showingError[field] ? formErrors[field] : '');
+
+  const submitForm = () => {
+    if (!formErrors.email && !formErrors.password && formState.email && formState.password) {
+      setShowingSnackbar(true);
+      setFormState({ ...initialFormValue });
+      setTimeout(() => setShowingSnackbar(false), 4000);
+    }
+  };
 
   return (
     <div className={styles.Container}>
@@ -86,10 +96,12 @@ const SignInForm = () => {
       </Typography>
       <Button
         color="dark"
+        onClick={submitForm}
         className={styles.SignInButton}
       >
         Sign In
       </Button>
+      {showingSnackbar ? <Snackbar message="Sign in sucessfully" /> : null}
     </div>
   );
 };
