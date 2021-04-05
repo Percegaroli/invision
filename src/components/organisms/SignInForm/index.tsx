@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Typography from '../../atoms/Typography';
 import FormInputElement from '../../molecules/FormInputElement';
 import styles from './SignInForm.module.scss';
-import SignWithGoogleButton from '../../molecules/SignWithGoogleButton';
 import Button from '../../atoms/Button';
-import { SignInModel } from '../../../models/forms/SignIn';
+import { SignInModel } from '../../../models/forms/SignInForm/SignIn';
+import { SignInValidation } from '../../../models/forms/SignInForm/validation';
 
 const initialFormValue: SignInModel = {
   email: '',
@@ -14,6 +14,10 @@ const initialFormValue: SignInModel = {
 const SignInForm = () => {
   const [formState, setFormState] = useState(initialFormValue);
   const [formErrors, setFormErrors] = useState(initialFormValue);
+  const [showingError, setShowingError] = useState({
+    email: true,
+    password: true,
+  });
 
   const changeFormValue = (
     changeEvent: React.ChangeEvent<HTMLInputElement>,
@@ -24,7 +28,28 @@ const SignInForm = () => {
       ...formState,
       [field]: newValue,
     });
+    validateField(newValue, field);
   };
+
+  const validateField = (newValue: string, field: keyof SignInModel) => {
+    setFormErrors({
+      ...formErrors,
+      [field]: SignInValidation[field](newValue),
+    });
+    setShowingError({
+      ...showingError,
+      [field]: false,
+    });
+  };
+
+  const enableShowingError = (field: keyof SignInModel) => {
+    setShowingError({
+      ...showingError,
+      [field]: true,
+    });
+  };
+
+  const isShowingError = (field: keyof SignInModel) => (showingError[field] ? formErrors[field] : '');
 
   return (
     <div className={styles.Container}>
@@ -40,6 +65,8 @@ const SignInForm = () => {
         value={formState.email}
         onChange={(event) => changeFormValue(event, 'email')}
         className={styles.FormInput}
+        onBlur={() => enableShowingError('email')}
+        error={isShowingError('email')}
       />
       <FormInputElement
         inputType="password"
@@ -47,6 +74,8 @@ const SignInForm = () => {
         value={formState.password}
         onChange={(event) => changeFormValue(event, 'password')}
         className={styles.FormInput}
+        onBlur={() => enableShowingError('password')}
+        error={isShowingError('password')}
       />
       <Typography
         color="dark"
@@ -61,16 +90,6 @@ const SignInForm = () => {
       >
         Sign In
       </Button>
-      {
-        /*
-      }
-      <div className={styles.OrContainer}>
-        <Typography>
-          Or
-        </Typography>
-      </div>
-      <SignWithGoogleButton />
-    */}
     </div>
   );
 };

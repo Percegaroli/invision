@@ -1,0 +1,7 @@
+@import '/src/config/styles/tokens.scss';
+
+.Link {
+  text-decoration: underline;
+  color: $primaryColor-medium;
+  font-size: $fontSize-body;
+}

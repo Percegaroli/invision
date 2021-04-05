@@ -9,11 +9,13 @@ interface Props {
   label: string;
   placeholder?: string;
   className?: string
-  inputType?: InputType
+  inputType?: InputType,
+  onBlur?: () => void,
+  error: string
 }
 
 const FormInputElement = ({
-  value, onChange, label, className, placeholder, inputType,
+  value, onChange, label, className, placeholder, inputType, onBlur, error,
 }: Props) => {
   const [id] = useState(`${Math.random()}-${label}`);
 
@@ -37,7 +39,15 @@ const FormInputElement = ({
         onChange={onChange}
         placeholder={placeholder}
         type={inputType}
+        onBlur={onBlur}
+        isError={error !== ''}
       />
+      <Typography
+        variant="h5"
+        color="error"
+      >
+        {error}
+      </Typography>
     </div>
   );
 };
@@ -46,6 +56,7 @@ FormInputElement.defaultProps = {
   className: '',
   placeholder: '',
   inputType: 'text',
+  onBlur: () => {},
 };
 
 export default FormInputElement;

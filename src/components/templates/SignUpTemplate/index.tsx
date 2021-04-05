@@ -8,7 +8,7 @@ import styles from './SignUpTemplate.module.scss';
 const SignUpTemplate = () => (
   <div className={styles.Container}>
     <ImagesBanner stepsItem={ImageBannerSteps} />
-    <SignInFormPaper>
+    <SignInFormPaper isSignUp>
       <SignUpForm />
     </SignInFormPaper>
 

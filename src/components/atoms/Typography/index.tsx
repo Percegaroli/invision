@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Typography.module.scss';
 
-type TypographyColorVariants = 'lightest' | 'dark' | 'medium' | 'darkest'
+type TypographyColorVariants = 'lightest' | 'dark' | 'medium' | 'darkest' | 'error'
 type TypographyVariants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'body' | 'span'
 type TypographyDisplayTypes = 'block' | 'inline'
 type TypographyAlign = 'center' | 'left' | 'right'
