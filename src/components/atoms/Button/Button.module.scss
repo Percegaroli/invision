@@ -1,0 +1,24 @@
+@import '/src/config/styles/tokens.scss';
+
+$button-border-radius: 100px;
+$button-padding: 13px 62px;
+
+.Button {
+  padding: $button-padding;
+  display: flex;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: $button-border-radius;
+  font-size: $fontSize-body;
+}
+
+.dark {
+  background-color: $primaryColor-dark;
+  color: $primaryColor-lightest;
+}
+
+.lightest {
+  background-color: $primaryColor-lightest;
+  color: $primaryColor-darkest;
+}

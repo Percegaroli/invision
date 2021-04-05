@@ -1,0 +1,49 @@
+@import '/src/config/styles/tokens.scss';
+
+.h1 {
+  font-size: $fontSize-h1;
+}
+
+.h2 {
+  font-size: $fontSize-h2;
+}
+
+.h3 {
+  font-size: $fontSize-h3;
+}
+
+.h4 {
+  font-size: $fontSize-h4;
+}
+
+.body {
+  font-size: $fontSize-body;
+}
+
+.dark {
+  color: $primaryColor-dark;
+}
+
+.medium {
+  color: $primaryColor-medium;
+}
+
+.lightest {
+  color: $primaryColor-lightest;
+}
+
+.darkest {
+  color: $primaryColor-darkest;
+}
+
+.Underline {
+  text-decoration: underline;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}

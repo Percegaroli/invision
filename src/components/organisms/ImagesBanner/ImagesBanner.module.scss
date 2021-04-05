@@ -1,0 +1,6 @@
+@import '/src/config/styles/tokens.scss';
+
+.Container {
+  min-height: 100vh;
+  background-color: $primaryColor-medium;
+}

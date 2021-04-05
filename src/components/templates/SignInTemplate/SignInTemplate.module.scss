@@ -1,0 +1,19 @@
+$formSection-padding: 120px 124px 143px;
+
+.Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.FormSection {
+  padding: $formSection-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Logo {
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-bottom: 73px;
+}

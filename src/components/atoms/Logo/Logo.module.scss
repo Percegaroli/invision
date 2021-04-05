@@ -1,0 +1,8 @@
+@import '/src/config/styles/tokens.scss';
+
+$logoSize: 35;
+
+.Logo {
+  font-family: 'Avenir', sans-serif;
+  font-size: $logoSize;
+}

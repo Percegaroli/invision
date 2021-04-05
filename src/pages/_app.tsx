@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
-import '../styles/globals.scss';
+import '../config/styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;

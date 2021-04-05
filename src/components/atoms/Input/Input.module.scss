@@ -1,0 +1,15 @@
+@import '/src/config/styles/tokens.scss';
+
+$inputPadding: 11px 20px;
+
+.Input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: $inputPadding;
+  text-align: left;
+  font-size: $fontSize-body;
+  color: $primaryColor-darkest;
+  border-bottom: 1px solid $primaryColor-dark;
+}

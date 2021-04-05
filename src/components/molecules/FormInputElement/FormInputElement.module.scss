@@ -1,0 +1,13 @@
+@import '/src/config/styles/tokens.scss';
+
+.Label {
+  margin-bottom: 4px;
+}
+
+.LabelText {
+  font-size: $fontSize-h5;
+}
+
+.Container {
+  width: 100%;
+}
