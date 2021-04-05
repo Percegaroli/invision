@@ -1,4 +1,12 @@
+@import '/src/config/styles/tokens.scss';
+
 .Container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: block;
+
+
+  @media (min-width: $breakpoint-tablet) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
 }

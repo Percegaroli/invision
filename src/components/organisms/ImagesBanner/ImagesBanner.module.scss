@@ -1,12 +1,17 @@
 @import '/src/config/styles/tokens.scss';
 
 .Container {
-  min-height: 100vh;
   background-color: $primaryColor-medium;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 112px 127px;
+  padding: 112px 45px;
+
+  @media (min-width: $breakpoint-desktop){
+    padding: 112px 127px;
+
+  }
 }
 
 .DescriptionContainer {

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './ImagesBanner.module.scss';
 import Typography from '../../atoms/Typography';
 import StepController from '../../molecules/StepController';
+import UseResolution from '../../../hooks/UseResolution';
 
 interface StepItem {
   imageUrl: string;
@@ -17,7 +18,8 @@ interface Props {
 const ImagesBanner = (props: Props) => {
   const { stepsItem, className } = props;
   const [currentStep, setCurrentStep] = useState(1);
-  return (
+  const resolution = UseResolution();
+  return resolution !== 'Mobile' ? (
     <div className={`${styles.Container} ${className}`}>
       <Image
         src={stepsItem[currentStep - 1].imageUrl}
@@ -27,7 +29,7 @@ const ImagesBanner = (props: Props) => {
       />
       <div className={styles.DescriptionContainer}>
         <Typography
-          variant="h1"
+          variant={resolution === 'Desktop' ? 'h1' : 'h3'}
           color="lightest"
           align="center"
         >
@@ -35,7 +37,7 @@ const ImagesBanner = (props: Props) => {
         </Typography>
         <Typography
           color="lightest"
-          variant="h3"
+          variant={resolution === 'Desktop' ? 'h3' : 'h5'}
           className={styles.Description}
           align="center"
         >
@@ -48,7 +50,7 @@ const ImagesBanner = (props: Props) => {
         />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 ImagesBanner.defaultProps = {

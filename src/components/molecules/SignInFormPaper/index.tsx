@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../atoms/Logo';
+import NewInvision from '../NewInvision';
 import Separator from '../Separator';
 import SignWithGoogleButton from '../SignWithGoogleButton';
 import TermsOfCondition from '../TermsOfCondition';
@@ -20,6 +21,7 @@ const SignInFormPaper: React.FC<Props> = ({ isSignUp, children, className }) => 
     />
     <SignWithGoogleButton />
     {isSignUp && <TermsOfCondition className={styles.Condition} />}
+    {!isSignUp && <NewInvision className={styles.Condition} />}
   </div>
 );
 

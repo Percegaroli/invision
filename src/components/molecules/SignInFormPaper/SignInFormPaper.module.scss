@@ -1,20 +1,35 @@
+@import '/src/config/styles/tokens.scss';
+
 $formSection-padding: 120px 124px 143px;
 
 .Container {
-  padding: $formSection-padding;
+  padding: 36px 45px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: $breakpoint-desktop){
+    padding: $formSection-padding;
+  }
 }
 
 .Logo {
   justify-self: flex-end;
   align-self: flex-end;
-  margin-bottom: 73px;
+  margin-bottom:36px;
+
+  @media (min-width: $breakpoint-tablet){
+    margin-bottom: 73px;
+  }
 }
 
 .Separator {
-  margin: 40px 0;
+  margin: 20px 0;
+
+  @media (min-width: $breakpoint-tablet){
+    margin: 40px 0;
+  }
 }
 
 .Condition {

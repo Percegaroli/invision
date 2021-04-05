@@ -4,13 +4,17 @@ $button-border-radius: 100px;
 $button-padding: 13px 62px;
 
 .Button {
-  padding: $button-padding;
+  padding: 13px 20px;
   display: flex;
   text-align: center;
   border: none;
   outline: none;
   border-radius: $button-border-radius;
   font-size: $fontSize-body;
+
+  @media (min-width: $breakpoint-tablet){
+    padding: $button-padding;
+  }
 }
 
 .dark {

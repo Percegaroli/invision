@@ -1,6 +1,12 @@
+@import '/src/config/styles/tokens.scss';
+
 .Title {
-  margin-bottom: 87px;
+  margin-bottom: 30px;
   text-align: center;
+
+  @media (min-width: $breakpoint-tablet){
+    margin-bottom: 87px;
+  }
 }
 
 .FormInput {
@@ -12,9 +18,16 @@
   margin-bottom: 30px;
 }
 
-.SignInButton,
+.SignInButton {
+  margin-bottom: 0;
+}
+
 .OrContainer {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+
+  @media (min-width: $breakpoint-tablet){
+    margin-bottom: 40px;
+  }
 }
 
 .Container {
