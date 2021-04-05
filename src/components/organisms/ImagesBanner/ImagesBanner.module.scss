@@ -3,4 +3,16 @@
 .Container {
   min-height: 100vh;
   background-color: $primaryColor-medium;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 112px 127px;
+}
+
+.DescriptionContainer {
+  margin-top: 30px
+}
+
+.Description {
+  margin: 20px 0 30px;
 }

@@ -1,0 +1,21 @@
+@import '/src/config/styles/tokens.scss';
+
+.Button {
+  padding: 0 !important;
+}
+
+.Inactive,
+.Active {
+  height: 11px;
+}
+
+.Active {
+  width: 26px;
+  background-color: $primaryColor-lightest !important;
+}
+
+.Inactive {
+  width: 11px;
+  background-color: adjust-color($color: $primaryColor-lightest, $alpha: -.5) !important;
+}
+
