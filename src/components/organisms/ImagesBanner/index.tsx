@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './ImagesBanner.module.scss';
 import Typography from '../../atoms/Typography';
@@ -19,6 +19,7 @@ const ImagesBanner = (props: Props) => {
   const { stepsItem, className } = props;
   const [currentStep, setCurrentStep] = useState(1);
   const resolution = UseResolution();
+
   return resolution !== 'Mobile' ? (
     <div className={`${styles.Container} ${className}`}>
       <Image
