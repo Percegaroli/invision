@@ -47,6 +47,7 @@ const StepController = ({
           active={index + 1 === currentStep}
           onClick={() => onClick(index + 1)}
           className={styles.StepButton}
+          key={`stepButton-${index + 1}`}
         />,
       );
     }
